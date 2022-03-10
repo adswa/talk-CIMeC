@@ -34,11 +34,11 @@
 		<a href="https://twitter.com/AdinaKrik" target="_blank">
 		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />
 		  @AdinaKrik</a></small></td>
-    <td><img style="height:100px;margin-right:10px" data-src="../pics/fzj_logo.svg" />
+    <td style="vertical-align:bottom"><img style="height:100px;margin-right:0px" data-src="../pics/fzj_logo.svg" />
 	  <br></td>
   </tr>
   <tr>
-    <td>
+    <td style="vertical-align:top">
         <small><a href="http://psychoinformatics.de" target="_blank">Psychoinformatics lab</a>,
           <br> Institute of Neuroscience and
           Medicine, Brain &amp; Behavior (INM-7)<br>
@@ -47,8 +47,9 @@
 
     </td>
     <td>
-          <img height="90" src="../pics/repronim.png">
-          <img height="80" src="../pics/incf.png"
+          <img height="50" src="../pics/repronim.png">
+          <img height="50" src="../pics/incf.png">
+        <img height="40" src="pics/datalad_logo_wide.svg">
     </td>
   </tr>
   </table>
@@ -78,13 +79,17 @@
     <section data-transition="None ">
         <h3>The same, but for data:</h3>
         <img src="pics/reallifeexample.png"><br>
-        <p class="fragment fade-in">(yes, 13 TB of data. yes, real-life example)</p>
+        <p>(Yes, 13 TB of data. Yes, real-life example)</p>
     </section>
 
     <section>
         <h3>Help! Git to the rescue?</h3>
         <p class="fragment fade-in">Sadly, Git does not handle large files well.
-            <img src="pics/gitsnapshot.png"></p>
+            <div class="r-stack">
+            <img class="fragment" src="pics/gitsnapshot.png">
+            <img class="fragment" src="pics/gitsnapshot2.png">
+        </div>
+        </p>
         <p class="fragment fade-in">
         And repository hosting services refuse to handle large files:
         <img src="pics/pushing_large_files_to_Git.png"></p>
@@ -157,14 +162,43 @@
         </div>
     </section>
 
-    <section data-transition="None">
-        <h3>The Basics - local VC for data</h3>
+    <section>
+    <h2>Further Information</h2>
         <table>
-            <tr><td><strong>git-annex</strong></td>
-                <td><strong>datalad</strong></td>
+            <tr>
+                <td>git-annex</td>
+                <td>DataLad</td>
             </tr>
             <tr>
+                <td style="vertical-align:top">
+        <ul>
+        <li>Source code: <a href="https://git-annex.branchable.com/install/fromsource/">git://git-annex.branchable.com/</a> </li>
+        <li>Docs & Forum: <a href="https://git-annex.branchable.com/">git-annex.branchable.com/</a></li>
+        </ul>
+                </td>
                 <td>
+        <ul style="font-size:30px">
+        <li>Source code: <a href="https://github.com/datalad/datalad">github.com/datalad/datalad</a> </li>
+        <li>Technical docs: <a href="https://docs.datalad.org">docs.datalad.org</a></li>
+        <li>Video tutorials: <a href="https://www.youtube.com/channel/UCB8-Zf7D0DSzAsREoIt0Bvw">Youtube channel "DataLad"</a> </li>
+        <li>Matrix channel: <a href="https://matrix.to/#/!SaWRuXhTcCDulfttET:matrix.org?via=matrix.org&via=inm7.de" target="_blank">DataLad</a> </li>
+        <li>User docs + tutorials: <a href="https://handbook.datalad.org" target="_blank">handbook.datalad.org</a> </li>
+            <img src="pics/logo.svg" height="100px">
+    </ul>
+                </td>
+            </tr>
+    </table>
+
+</section>
+
+    <section data-transition="None">
+        <h3>Where to start</h3>
+        <table>
+            <tr><td  style="border: 0px;" class="fragment fade-in" data-fragment-index="1"><strong>git-annex:</strong> "annex repo"</td>
+                <td  style="border: 0px;" class="fragment fade-in" data-fragment-index="2"><strong>datalad:</strong> "DataLad dataset" </td>
+            </tr>
+            <tr>
+                <td class="fragment fade-in" data-fragment-index="1">
 <pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-height:none; max-width:none" data-line-numbers="1, 3-4">$ git init myrepo
 Initialized empty Git repository in /tmp/myrepo           .
 $ cd myrepo
@@ -173,15 +207,15 @@ init  ok
 (recording state in git...)
 </code></pre>
                 </td>
-                <td>
+                <td class="fragment fade-in" data-fragment-index="2">
 <pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-width:none; max-height:none" data-line-numbers="1">$ datalad create mydataset
 [INFO   ] Creating a new annex repo at tmp/mydataset           .
 create(ok): /tmp/mydataset (dataset)
 </code></pre>
+                    <img class="fragment fade-in" data-fragment-index="2" src="pics/dataset.svg" height="380px" align="center">
                 </td>
             </tr>
         </table>
-<img class="fragment fade-in" src="pics/dataset.svg" height="300px" align="right">
     </section>
 
 </section>
@@ -205,20 +239,58 @@ create(ok): /tmp/mydataset (dataset)
 
 <section data-transition="None">
     <h3>1. Transparency</h3>
+    Git's revision history transparently lists all changes made
+    in this collaboratively written paper:
     <div class="r-stack">
-        <img class="fragment" src="pics/tig.png" height="500px">
-        <img class="fragment" src="pics/tig_extended.png" height="500px">
+        <img class="fragment fade-out" data-fragment-index="1" src="pics/tig.png" height="400px">
+        <img class="fragment" data-fragment-index="1" src="pics/tig_extended.png" height="400px">
+    </div>
+</section>
+
+<section data-transition="None">
+    <h3>1. Transparency - for data</h3>
+    <table>
+        <tr>
+            <td><br>
+                Why? Data changes, too! <br>
+                <ul>
+                    <li>Additional acquisitions</li>
+                    <li>Errors identified or fixed</li>
+                    <li>Restructuring to the latest <br>
+                        BIDS standard</li>
+                    <li>...</li>
+                </ul>
+                <br><br>
+                <small class="fragment" data-fragment-index="1">Example: The <a href="" target="_blank">ABCD</a> study identified several data<br>
+                issues in 2019, among others, flipped field maps <br>
+                    for specific scanner types:</small>
+                <img class="fragment" data-fragment-index="1" height="200px" src="pics/abcdtwitter.png">
+            </td>
+            <td class="fragment" style="vertical-align: bottom"><img src="pics/abcd.png" width="1200px"></td>
+        </tr>
+    </table>
+</section>
+
+<section data-transition="None">
+    <h3>1. Transparency - for data</h3>
+    Once you track changes to data with version control tools,
+    you can find out <em>why</em> it changed, <em>what</em> has changed, <em>when</em> it changed,
+    and <em>which version</em> of your data was used at which point in time.
+    <div class="r-stack">
+        <img class="fragment" src="pics/tigdata.png">
+        <img class="fragment" src="pics/tigdata3.png">
+        <img class="fragment" src="pics/tigdata2.png">
     </div>
 </section>
 
 <section data-transition="None">
     <h3>Transparency - for data</h3>
         <table>
-            <tr><td><strong>git-annex</strong></td>
-                <td><strong>datalad</strong></td>
+            <tr><td style="border: 0px;" class="fragment fade-in" data-fragment-index="1"><strong>git-annex</strong></td>
+                <td style="border: 0px;" class="fragment fade-in" data-fragment-index="2"><strong>datalad</strong></td>
             </tr>
             <tr>
-                <td>
+                <td style="border: 0px;" class="fragment fade-in" data-fragment-index="1">
 <pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-height:none; max-width:none" data-line-numbers="1, 5">$ git annex add mylargefile
 add mylargefile
 ok
@@ -230,7 +302,7 @@ $ git commit -m "annexed a large file"           .
 
 </code></pre>
                 </td>
-                <td>
+                <td style="border: 0px;" class="fragment fade-in" data-fragment-index="2">
 <pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-width:none; max-height:none" data-line-numbers="1">$ datalad save -m "annexed a large file" mylargefile           .
 add(ok): mylargefile (file)
 save(ok): . (dataset)
@@ -248,10 +320,7 @@ action summary:
     </div>
 </section>
 
-<section>
-    <h3>1. Transparency - for data</h3>
-    TODO tig overview
-</section>
+
 </section>
 
 <section>
@@ -269,55 +338,44 @@ action summary:
 
     <section data-transition="None">
         <h3>2. Accessibility/Availability</h3>
-        <img src="pics/remodnav-3.png" height="800px">
+        <img src="pics/remodnav-3.png" height="900px">
     </section>
 
     <section data-transition="None">
         <h3>2. Accessibility/Availability - for data</h3>
-        <img src="pics/clonedata.gif" height="800px">
+        <img src="pics/clonedata.gif" height="900px">
     </section>
 
+<section data-transition="None">
+    <h3>2. Accessibility/Availability - for data</h3>
+    One demand file access via git-annex/DataLad:
+<pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-height:none; max-width:none"># clone the repository
+$ git clone https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+# get one or more files/directories/... on demand
+$ git annex get file/directory/...
+# or
+$ datalad clone https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+$ datalad get file/directory/...
+</code></pre>
 </section>
-
-<section>
-    <section data-transition="None">
-        <h3>3. Visibility and Reusability</h3>
-        <div class="r-stack">
-            <img class="fragment fade-in-then-out" src="pics/multimatch.png" height="800px">
-            <img class="fragment fade-in-then-out" src="pics/multimatch2.png" height="800px">
-            <img class="fragment fade-in-then-out" src="pics/multimatch3.png" height="800px">
-        </div>
-    </section>
-
-    <section data-transition="None">
-        <h3>3. Visibility and Reusability - for data</h3>
-        <img src="pics/gin-doi2.png" height="800">
-
-    </section>
-
-    <section data-transition="None">
-        <h3>3. Visibility and Reusability - for data</h3>
-        <img src="pics/gin-doi3.png" height="800px">
-    </section>
 
 </section>
 
 
-
 <section>
     <section data-transition="None">
-        <h3>4. Security and reliability</h3>
+        <h3>3. Security and reliability</h3>
         <img src="pics/stolenlaptop.jpg">
         <imgcredit><a href="https://abcnews.go.com/blogs/business/2013/04/rutgers-student-offers-1000-for-data-on-stolen-laptop" target="blank">abcnews.go.com</a> </imgcredit>
     </section>
 
     <section data-transition="None">
-        <h3>4. Security and reliability</h3>
+        <h3>3. Security and reliability</h3>
         <img src="pics/backup.png" height="900">
     </section>
 
     <section data-transition="None">
-        <h3>4. Security and reliability - for data</h3>
+        <h3>3. Security and reliability - for data</h3>
         decentral version control for data integrates with a variety of services
         to let you store data in different  places
         <img src="pics/decentral_RDM_overview.png">
@@ -325,13 +383,12 @@ action summary:
     </section>
 
     <section data-transition="None">
-        <h3>4. Security and reliability - for data</h3>
+        <h3>3. Security and reliability - for data</h3>
         <img src="pics/publishing_network_publishparts2.svg" height="900px">
     </section>
 
-
     <section data-transition="None">
-        <h3>4. Security and reliability - for data</h3>
+        <h3>3. Security and reliability - for data</h3>
         Example: A Git repository with annexed data in a public S3 bucket
         <div class="r-stack">
         <img class="fragment fade-in-then-out" data-fragment-index="1" src="pics/ds003633.png" height="900px">
@@ -344,29 +401,57 @@ action summary:
     </section>
 
     <section data-transition="None">
-        <h3>4. Security and reliability - for data</h3>
+        <h3>3. Security and reliability - for data</h3>
         <img src="pics/publishing_network_publishgin.svg" height="900px">
     </section>
 
     <section data-transition="None">
-        <h3>4. Security and reliability - for data</h3>
+        <h3>3. Security and reliability - for data</h3>
+        Publishing data to <a href="https://gin.gnode.org" target="_blank">Gin</a> - for example as a backup:
         <div class="r-stack">
             <img class="fragment fade-in" src="pics/pushtogin.gif">
             <img class="fragment fade-in" src="pics/ginasbackup.gif">
         </div>
     </section>
-
 </section>
+
 
 <section>
     <section data-transition="None">
-        <h3>Collaboration</h3>
+        <h3>4. Visibility and Reusability</h3>
+        Repository hosting services add cool features and integrations:
+        <div class="r-stack">
+            <img class="fragment fade-in-then-out" src="pics/multimatch.png" height="1000px">
+            <img class="fragment fade-in-then-out" src="pics/multimatch2.png" height="700px">
+            <img class="fragment fade-in-then-out" src="pics/multimatch3.png" height="900px">
+        </div>
+    </section>
+
+    <section data-transition="None">
+        <h3>4. Visibility and Reusability - for data</h3>
+        <div class="r-stack">
+            <img src="pics/gin-doi2.png" height="900px">
+            <img class="fragment" src="pics/gin-doi3.png" height="900px">
+        </div>
+            <br>
+        <small><a href="https://gin.gnode.org" target="_blank">Gin</a>
+            helps you to archive data, ensuring minimal metadata and a license, and providing a DOI.<br>
+            Do you want to share data via Gin? <a href="http://handbook.datalad.org/en/latest/basics/101-139-gin.html" target="_blank">
+                handbook.datalad.org</a> has a Walkthrough
+        </small>
+    </section>
+</section>
+
+
+<section>
+    <section data-transition="None">
+        <h3>5. Collaboration</h3>
         <img src="pics/firstpullrequest.svg">
         <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank"> The Turing Way</a></imgcredit>
     </section>
 
     <section data-transition="None">
-        <h3>Collaboration</h3>
+        <h3>5. Collaboration</h3>
         <img src="pics/pr_on_data.png" height="800px">
         <small>Psst! <a href="https://github.com/datalad-datasets/human-connectome-project-openaccess" target="_blank">
             github.com/datalad-datasets/human-connectome-project-openaccess </a><br>
@@ -374,108 +459,123 @@ action summary:
     </section>
 
     <section data-transition="None">
-        <h3>Collaboration</h3>
-        <img src="pics/datahistory.png">
-        <img class="fragment" src="pics/Provenance_alpha.png" height="500px">
-        <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank">
-                    The Turing Way</a>
-        </imgcredit>
+        <h3>5. Collaboration</h3>
+        Teamscience on more than code:
+        <img src="pics/teamscience.png">
+        <img class="fragment" src="pics/datahistory.png">
     </section>
 </section>
 
 <section>
-    <section>
-        <h3>Reproducibility</h3>
-        shared code
+    <section data-transition="None">
+        <h3>6. efficiency</h3>
+        <img src="pics/github-actions-with-text.png">
+        <p class="fragment fade-in">Repository hosting features that increase your
+            efficiency just as easily extend to your version-controlled data</p>
     </section>
 
-    <section>
-        <h3>Reproducibility</h3>
-        share data alongside your code, too
+    <section data-transition="None">
+        <h3>6. efficiency</h3>
+        <p class="fragment fade-in" data-fragment-index="1">DataLad is built to maximize interoperability and use with hosting and
+            storage technology you already use
+        <div class="r-stack">
+            <img class="fragment fade-out" data-fragment-index="1" src="pics/services_only.png" height="800px">
+            <img class="fragment" data-fragment-index="1" src="pics/services_connected.png" height="800px">
+        </div>
+    </section>
+</section>
+
+
+<section>
+    <section data-transition="None">
+        <h3>7. Reproducibility</h3>
+        Science has many different building blocks<br>
+        <img class='fragment fade-in' data-fragment-index="1" src="pics/flour.png" width="150px">
+        <img class='fragment fade-in' data-fragment-index="1" src="pics/water.png" width="300px">
+        <img class='fragment fade-in' data-fragment-index="1" src="pics/yeast.png" width="250px">
+
+        <p class="fragment fade-in" data-fragment-index="2">Code, software, and data produce research outputs:<br>
+        <img class='fragment fade-in' data-fragment-index="2" src="pics/bread.png" width="350px">
+        </p>
     </section>
 
-    <section>
-        <h3>Reproducibility</h3>
+    <section  data-transition="None">
+        <h3>7. Reproducibility</h3>
+        The more you share, the more likely can others reproduce your results
+        <img src="pics/agoodstart.png">
+              <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank">
+                    The Turing Way</a>
+      </imgcredit>
+    </section>
+
+    <section data-transition="None">
+        <h3>7. Reproducibility</h3>
+        VC tools for data let you keep all ingredients also next to each other: <br>
+
       <video src="/home/adina/Videos/remodnav/remodnav.webm" controls></video><br>
           <small>You can find this recording on YouTube:
               <a href="https://www.youtube.com/watch?v=nhLqmF58SLQ" target="_blank">
-                  https://www.youtube.com/watch?v=nhLqmF58SLQ</a></small>
+                  https://www.youtube.com/watch?v=nhLqmF58SLQ</a> and a Walkthrough at
+              <a href="http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html" target="_blank">
+                  handbook.datalad.org
+              </a> </small>
+            <p style="z-index: -1">
+<pre class="fragment fade-in" data-fragment-index="1"><code class="fragment fade-in" data-fragment-index="1" class="python" style="max-height:none" data-line-numbers="3, 7">vim code/mk_figuresnstats.py
+
+from datalad.api import get as datalad_get
+[...]
+infiles = [op.join('data', 'raw_eyegaze', 'sub-32', 'beh', 'sub-32_task-movie_run-5_recording-eyegaze_physio.tsv.gz'), [...]]
+for f in infiles:
+    datalad get(f)
+    data = np.recfromcsv(f)
+</code></pre>
     </section>
 </section>
 
-<section>
-    <section data-transition="None">
-        <h3>efficiency</h3>
-        <img src="pics/github-actions-with-text.jpg">
-    </section>
-
-    <section data-transition="None">
-        <h3>efficiency</h3>
-        <div class="r-stack">
-            <img class="fragment" src="pics/services_only.png">
-            <img class="fragment" src="pics/services_connected.png">
-        </div>
-    </section>
-
-    <section data-transition="None">
-        <h3>efficiency</h3>
-        CI integration
-
-    </section>
-</section>
 
 <section>
     <section>
-        <h3>Unique advantages</h3>
+        <h3>Unique additional advantages</h3>
     </section>
+
+    <section>
+        <h3>Modularity via Dataset nesting</h3>
+      <ul>
+          <li>Typically, Git repositories are cumbersome to link to eachother.
+              DataLad provides seamless nesting mechanisms:
+              <div class="r-stack">
+                  <img class="fragment fade-out" data-fragment-index="3" height="330" src="pics/linkage_subds.svg">
+                  <img class="fragment fade-in" data-fragment-index="3" src="pics/Provenance_alpha.png" height="500px">
+              </div>
+          <li class="fragment fade-in" data-fragment-index="1">Overcomes scaling issues with large amounts of files</li>
+          <pre  class="fragment fade-in" data-fragment-index="1"><code class="fragment fade-in" data-fragment-index="1">adina@bulk1 in /ds/hcp/super on git:master❱ datalad status --annex -r
+  15530572 annex'd files (77.9 TB recorded total size)
+  nothing to save, working tree clean</code></pre>
+          <small><a class="fragment fade-in" data-fragment-index="1" href="https://github.com/datalad-datasets/human-connectome-project-openaccess" target="_blank">(github.com/datalad-datasets/human-connectome-project-openaccess)</a></small>
+          <li class="fragment fade-in" data-fragment-index="2">
+              Modularizes research components for transparency, reuse, and access
+              management
+          </li>
+      </ul>
+  </section>
+
 
     <section>
         <h3>Privacy</h3>
-        fine-grained privacy decisions
+        fine-grained privacy decisions: git-annex or your choice of hosting service
+        allow to keep files or datasets accessible only to authorized users.
+        <img src="pics/ukblinkage.png">
     </section>
 
     <section>
-        <h3>Modularity</h3>
-        <img
+        <h3>Provenance capture</h3>
     </section>
 </section>
-<!-- From versioning code to versioning data -->
+
 
 <section>
     <section>
-        <img src="pics/phd052810s.png" height="600px">
-    </section>
-
-    <section>
-        <img src="pics/reallifeexample.png">
-    </section>
-    <section>
-        <h2>Be kind to your future self, work reproducibly</h2>
-        <img class="fragment fade-in" src="pics/your-closest-collaborator.png">
-        <!--<img class="fragment fade-in" height="400px" src="pics/ten-years-challenge.png">-->
-    </section>
-</section>
-<!-- The problem is that Git does not handle large files well -->
-
-<!-- And now bridge to git-annex and DataLad --->
-<section>
-    <h3>improve scientific workflows, coming from the perspective of software distributions</h3>
-    <img class="fragment fade-in" src="pics/datalad_logo_wide.svg">
-         <div class="fragment fade-in">"Share and treat data like software"</div>
-    <img class="fragment fade-in" src="pics/yarik_michael.jpg">
-    <img class="fragment fade-in" src="pics/neurodebian.png" height="250">
-    <img class="fragment fade-in" src="pics/joey-hess.jpg" height="250">
-    <img class="fragment fade-in" src="pics/gitannex.png" height="250">
-</section>
-</section>
-
-<!-- Advantages of distributed version control for data
- TODO: add CI integrations with data
- -->
-
-<section>
-    <section>
-        <h3>Advantages</h3>
+        <h3>Summary</h3>
         <dl>
             <dt>Transparency</dt>
             <dd>Which data, in which version, obtained from where, ...</dd>
@@ -485,6 +585,58 @@ action summary:
             <dd>Collaborate on data analyses like they are software projects</dd>
         </dl>
     </section>
+
+
+<section>
+  <h2>Acknowledgements</h2>
+  <table>
+  <tr style="vertical-align:top">
+    <td style="vertical-align:top">
+      <dl>
+        <dt>Software</dt>
+        <dd style="margin-left:5px!important">
+          <ul style="margin-left:5px!important">
+              <li>Joey Hess (git-annex)</li>
+              <li>The DataLad team &
+              contributors</li>
+          </ul>
+        </dd>
+        <dt style="margin-top:20px">Illustrations </dt>
+        <dd style="margin-left:5px!important">
+          <ul style="margin-left:5px!important">
+              <li>The Turing Way <br>
+                  project & Scriberia</li>
+              <img src="pics/bannerthanks.svg">
+          </ul>
+        </dd>
+      </dl>
+    </td>
+    <td style="vertical-align:top">
+  <div style="margin-bottom:-20px;text-align:center"><strong>Funders</strong></div>
+  <img style="height:150px;margin-right:50px" data-src="pics/nsf_2020.png" />
+  <img style="height:150px;margin-right:50pxi;margin-left:50px" data-src="pics/binc.png" />
+  <img style="height:150px;margin-left:50px" data-src="pics/bmbf_2020.png" />
+  <img style="height:80px;margin-top:-40px;margin-left:auto;margin-right:auto;width:100%" data-src="pics/fzj_logo.svg" />
+  <div style="margin-top:-20px">
+  <img style="height:60px;margin-right:20px" data-src="pics/erdf.png" />
+  <img style="height:60px;margin-right:20px" data-src="pics/cbbs_logo.png" />
+  <img style="height:60px" data-src="pics/LSA-Logo.png" />
+  </div>
+  <div style="margin-top:40px;margin-bottom:20px;text-align:center"><strong>Collaborators</strong></div>
+  <div style="margin-top:-20px">
+  <img style="height:100px;margin:20px" data-src="pics/hbp_logo.png" />
+  <img style="height:100px;margin:20px" data-src="pics/conp_logo.png" />
+  <img style="height:100px;margin:20px" data-src="pics/vbc_logo.png" />
+  </div>
+  <div style="margin-top:-40px">
+  <img style="height:120px;margin:20px" data-src="pics/openneuro_logo.png" />
+  <img style="height:120px;margin:20px" data-src="pics/cbrain_logo.png" />
+  <img style="height:140px;margin:20px" data-src="pics/brainlife_logo.png" />
+  </div>
+  </td>
+  </tr>
+  </table>
+</section>
 </section>
 
 <!-- A history lesson -->
