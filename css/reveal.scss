@@ -214,6 +214,28 @@ html.reveal-full-page {
 	position: relative;
 }
 
+imgcredit {
+  text-align: left;
+  display: block;
+  font-size: 30% ! important;
+  color: #ccc;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  position: fixed;
+  padding-left: 50px;
+}
+
+imgcredit::before {
+  content: "Image credit: ";
+}
+
+@media print {
+imgcredit
+{
+  position: absolute;
+}
+}
+
 
 /*********************************************
  * CONTROLS

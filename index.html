@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Version control for data and more</title>
 
+        <meta name="description" content="Version control for data">
+        <meta name="author" content="Adina Wagner">
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/beige.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -16,11 +19,596 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+
+
+<section>
+<section>
+    <h2><small>Version control</small> <br>
+        for data and beyond</h2>
+
+  <div style="margin-top:1em;text-align:center">
+  <table style="border: none;">
+  <tr>
+	<td>Adina Wagner
+	  <br><small>
+		<a href="https://twitter.com/AdinaKrik" target="_blank">
+		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />
+		  @AdinaKrik</a></small></td>
+    <td><img style="height:100px;margin-right:10px" data-src="../pics/fzj_logo.svg" />
+	  <br></td>
+  </tr>
+  <tr>
+    <td>
+        <small><a href="http://psychoinformatics.de" target="_blank">Psychoinformatics lab</a>,
+          <br> Institute of Neuroscience and
+          Medicine, Brain &amp; Behavior (INM-7)<br>
+       Research Center Jülich<br>
+        <a href="https://repronim.org" target="_blank">ReproNim/INCF fellow</a></small><br>
+
+    </td>
+    <td>
+          <img height="90" src="../pics/repronim.png">
+          <img height="80" src="../pics/incf.png"
+    </td>
+  </tr>
+  </table>
+  </div>
+        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-bottom:100px;margin-left:1000px">
+        <img src="pics/QRcode.png" height="200">
+    </p>
+<br><br><small>
+
+    Slides: <a href="https://doi.org/10.5281/zenodo.TODO" target="_blank">
+    DOI 10.5281/zenodo.TODO</a> (Scan the QR code)
+    <br>
+    Sources: <a
+    href="https://github.com/adswa/talk-CIMeC"
+    target="_blank"> github.com/adswa/talk-CIMeC</a>
+</small>
+</a>
+</section>
+</section>
+
+<section>
+
+    <section data-transition="None">
+        <img src="pics/phd052810s.png" height="600px">
+    </section>
+
+    <section data-transition="None ">
+        <h3>The same, but for data:</h3>
+        <img src="pics/reallifeexample.png"><br>
+        <p class="fragment fade-in">(yes, 13 TB of data. yes, real-life example)</p>
+    </section>
+
+    <section>
+        <h3>Help! Git to the rescue?</h3>
+        <p class="fragment fade-in">Sadly, Git does not handle large files well.
+            <img src="pics/gitsnapshot.png"></p>
+        <p class="fragment fade-in">
+        And repository hosting services refuse to handle large files:
+        <img src="pics/pushing_large_files_to_Git.png"></p>
+        <p style="z-index: 100;position: fixed; font-size:35px;margin-top:-450px;margin-bottom:300px;margin-left:1000px">
+            <img class="fragment" src="pics/horrofied.png" height="380px"></p>
+    </section>
+
+    <section>
+        <h3> distributed version control for data... </h3>
+        <table>
+            <tr>
+                <td>
+                    <img class="fragment fade-in" data-fragment-index="1" src="pics/gitannex.png" height="250">
+                </td>
+                <td>
+                    <div class="r-stack">
+                        <img class="fragment fade-in-then-out" data-fragment-index="1" src="pics/datalad_logo_wide.svg" height="220">
+                        <img class="fragment fade-in" data-fragment-index="4" src="pics/joey-hess.jpg" height="250">
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+
+       <div class="r-stack">
+            <img class="fragment fade-in-then-out" data-fragment-index="2" src="pics/publishing_gitvsannex.svg" height="550">
+            <img class="fragment fade-in" data-fragment-index="3" src="pics/publishing_network_gitvsannex.svg" height="550">
+        </div>
+    </section>
+
+    <section data-transition="None">
+        <h3> ... and to improve scientific workflows </h3>
+        <table>
+            <tr>
+                <td>
+                    <img class="fragment fade-in" data-fragment-index="1" src="pics/datalad_logo_wide.svg" height="220">
+                </td>
+                <td style="vertical-align:top">
+                    <div class="fragment fade-in" data-fragment-index="2"><small>"Share and treat data like software"</small></div>
+                    <img class="fragment fade-in" data-fragment-index="2" src="pics/neurodebian.png" height="200">
+                    <img class="fragment fade-in" data-fragment-index="4" src="pics/yarik_michael.jpg" height="200">
+
+                </td>
+            </tr>
+        </table>
+        <div class="r-stack">
+            <img class="fragment" src="pics/sandwhich01.png" height="400px">
+            <img class="fragment" src="pics/sandwhich02.png" height="400px">
+            <img class="fragment" src="pics/sandwhich03.png" height="400px">
+        </div>
+    </section>
+
+        <section data-transition="None">
+        <h3> ... and to improve scientific workflows </h3>
+        <table>
+            <tr>
+                <td>
+                    <img src="pics/datalad_logo_wide.svg" height="220">
+                </td>
+                <td style="vertical-align:top">
+                    <img  src="pics/Provenance_alpha.png" height="250">
+                    <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank"> The Turing Way</a></imgcredit>
+                </td>
+            </tr>
+        </table>
+        <div class="r-stack">
+            <img  src="pics/sandwhich01.png" height="400px">
+            <img  src="pics/sandwhich02.png" height="400px">
+            <img  src="pics/sandwhich03.png" height="400px">
+        </div>
+    </section>
+
+    <section data-transition="None">
+        <h3>The Basics - local VC for data</h3>
+        <table>
+            <tr><td><strong>git-annex</strong></td>
+                <td><strong>datalad</strong></td>
+            </tr>
+            <tr>
+                <td>
+<pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-height:none; max-width:none" data-line-numbers="1, 3-4">$ git init myrepo
+Initialized empty Git repository in /tmp/myrepo           .
+$ cd myrepo
+$ git annex init
+init  ok
+(recording state in git...)
+</code></pre>
+                </td>
+                <td>
+<pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-width:none; max-height:none" data-line-numbers="1">$ datalad create mydataset
+[INFO   ] Creating a new annex repo at tmp/mydataset           .
+create(ok): /tmp/mydataset (dataset)
+</code></pre>
+                </td>
+            </tr>
+        </table>
+<img class="fragment fade-in" src="pics/dataset.svg" height="300px" align="right">
+    </section>
+
+</section>
+
+
+<section>
+    <section><h2>Extending version control advantages to data</h2></section>
+<section data-transition="None">
+    <h3>1. Transparency</h3>
+        <img src="pics/findfiles.png" height="500px">
+        <img src="pics/projectstack.png" height="500px">
+    <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank"> The Turing Way</a></imgcredit>
+</section>
+
+<section data-transition="None">
+    <h3>1. Transparency</h3>
+        <img src="pics/findfiles2.png" height="500px">
+        <img src="pics/versioning.png" height="500px">
+    <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank"> The Turing Way</a></imgcredit>
+</section>
+
+<section data-transition="None">
+    <h3>1. Transparency</h3>
+    <div class="r-stack">
+        <img class="fragment" src="pics/tig.png" height="500px">
+        <img class="fragment" src="pics/tig_extended.png" height="500px">
+    </div>
+</section>
+
+<section data-transition="None">
+    <h3>Transparency - for data</h3>
+        <table>
+            <tr><td><strong>git-annex</strong></td>
+                <td><strong>datalad</strong></td>
+            </tr>
+            <tr>
+                <td>
+<pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-height:none; max-width:none" data-line-numbers="1, 5">$ git annex add mylargefile
+add mylargefile
+ok
+(recording state in git...)
+$ git commit -m "annexed a large file"           .
+[master 0efa6cc] annexed a large file
+ 1 file changed, 1 insertion(+)
+ create mode 120000 mylargefile
+
+</code></pre>
+                </td>
+                <td>
+<pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-width:none; max-height:none" data-line-numbers="1">$ datalad save -m "annexed a large file" mylargefile           .
+add(ok): mylargefile (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)
+</code></pre>
+                </td>
+            </tr>
+        </table>
+    <div class="r-stack">
+        <img class="fragment fade-in-then-out" src="pics/local_wf.svg" height="450px" align="right">
+        <img clasS="fragment fade-in-then-out" src="pics/fileviewer.png">
+        <img class="fragment fade-in-then-out" src="pics/annexeddata.png">
+    </div>
+</section>
+
+<section>
+    <h3>1. Transparency - for data</h3>
+    TODO tig overview
+</section>
+</section>
+
+<section>
+    <section data-transition="None">
+        <h3>2. Accessibility/Availability</h3>
+        <img src="pics/remodnav.png" height="600px">
+        <p style="z-index: 100;position: fixed; font-size:35px;margin-top:-200px;margin-bottom:500px;margin-left:800px">
+            <img class="fragment" src="pics/disappointed.png" height="300px"></p>
+    </section>
+
+    <section data-transition="None">
+        <h3>2. Accessibility/Availability</h3>
+        <img src="pics/remodnav2.png">
+    </section>
+
+    <section data-transition="None">
+        <h3>2. Accessibility/Availability</h3>
+        <img src="pics/remodnav-3.png" height="800px">
+    </section>
+
+    <section data-transition="None">
+        <h3>2. Accessibility/Availability - for data</h3>
+        <img src="pics/clonedata.gif" height="800px">
+    </section>
+
+</section>
+
+<section>
+    <section data-transition="None">
+        <h3>3. Visibility and Reusability</h3>
+        <div class="r-stack">
+            <img class="fragment fade-in-then-out" src="pics/multimatch.png" height="800px">
+            <img class="fragment fade-in-then-out" src="pics/multimatch2.png" height="800px">
+            <img class="fragment fade-in-then-out" src="pics/multimatch3.png" height="800px">
+        </div>
+    </section>
+
+    <section data-transition="None">
+        <h3>3. Visibility and Reusability - for data</h3>
+        <img src="pics/gin-doi2.png" height="800">
+
+    </section>
+
+    <section data-transition="None">
+        <h3>3. Visibility and Reusability - for data</h3>
+        <img src="pics/gin-doi3.png" height="800px">
+    </section>
+
+</section>
+
+
+
+<section>
+    <section data-transition="None">
+        <h3>4. Security and reliability</h3>
+        <img src="pics/stolenlaptop.jpg">
+        <imgcredit><a href="https://abcnews.go.com/blogs/business/2013/04/rutgers-student-offers-1000-for-data-on-stolen-laptop" target="blank">abcnews.go.com</a> </imgcredit>
+    </section>
+
+    <section data-transition="None">
+        <h3>4. Security and reliability</h3>
+        <img src="pics/backup.png" height="900">
+    </section>
+
+    <section data-transition="None">
+        <h3>4. Security and reliability - for data</h3>
+        decentral version control for data integrates with a variety of services
+        to let you store data in different  places
+        <img src="pics/decentral_RDM_overview.png">
+        <small> <a href="https://doi.org/10.1515/nf-2020-0037" target="_blank">"In defense of decentralized Research Data Management", doi.org/10.1515/nf-2020-0037</a> </small>
+    </section>
+
+    <section data-transition="None">
+        <h3>4. Security and reliability - for data</h3>
+        <img src="pics/publishing_network_publishparts2.svg" height="900px">
+    </section>
+
+
+    <section data-transition="None">
+        <h3>4. Security and reliability - for data</h3>
+        Example: A Git repository with annexed data in a public S3 bucket
+        <div class="r-stack">
+        <img class="fragment fade-in-then-out" data-fragment-index="1" src="pics/ds003633.png" height="900px">
+        <img class="fragment" data-fragment-index="2" src="pics/distributed_content.gif" height="900px">
+        </div>
+        <small class="fragment fade-in-then-out" data-fragment-index="1">Did you know? <a href="http://handbook.datalad.org/en/latest/basics/101-139-s3.html" target="blank">
+            All of OpenNeuro's datasets are DataLad datasets</a></small>
+        <small class="fragment" data-fragment-index="2">Do you want to publish data to s3? <a href="http://handbook.datalad.org/en/latest/basics/101-139-s3.html" target="blank">
+            handbook.datalad.org</a> has a Walkthrough</small>
+    </section>
+
+    <section data-transition="None">
+        <h3>4. Security and reliability - for data</h3>
+        <img src="pics/publishing_network_publishgin.svg" height="900px">
+    </section>
+
+    <section data-transition="None">
+        <h3>4. Security and reliability - for data</h3>
+        <div class="r-stack">
+            <img class="fragment fade-in" src="pics/pushtogin.gif">
+            <img class="fragment fade-in" src="pics/ginasbackup.gif">
+        </div>
+    </section>
+
+</section>
+
+<section>
+    <section data-transition="None">
+        <h3>Collaboration</h3>
+        <img src="pics/firstpullrequest.svg">
+        <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank"> The Turing Way</a></imgcredit>
+    </section>
+
+    <section data-transition="None">
+        <h3>Collaboration</h3>
+        <img src="pics/pr_on_data.png" height="800px">
+        <small>Psst! <a href="https://github.com/datalad-datasets/human-connectome-project-openaccess" target="_blank">
+            github.com/datalad-datasets/human-connectome-project-openaccess </a><br>
+            provides fine-grained access to the HCP dataset</small>
+    </section>
+
+    <section data-transition="None">
+        <h3>Collaboration</h3>
+        <img src="pics/datahistory.png">
+        <img class="fragment" src="pics/Provenance_alpha.png" height="500px">
+        <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank">
+                    The Turing Way</a>
+        </imgcredit>
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Reproducibility</h3>
+        shared code
+    </section>
+
+    <section>
+        <h3>Reproducibility</h3>
+        share data alongside your code, too
+    </section>
+
+    <section>
+        <h3>Reproducibility</h3>
+      <video src="/home/adina/Videos/remodnav/remodnav.webm" controls></video><br>
+          <small>You can find this recording on YouTube:
+              <a href="https://www.youtube.com/watch?v=nhLqmF58SLQ" target="_blank">
+                  https://www.youtube.com/watch?v=nhLqmF58SLQ</a></small>
+    </section>
+</section>
+
+<section>
+    <section data-transition="None">
+        <h3>efficiency</h3>
+        <img src="pics/github-actions-with-text.jpg">
+    </section>
+
+    <section data-transition="None">
+        <h3>efficiency</h3>
+        <div class="r-stack">
+            <img class="fragment" src="pics/services_only.png">
+            <img class="fragment" src="pics/services_connected.png">
+        </div>
+    </section>
+
+    <section data-transition="None">
+        <h3>efficiency</h3>
+        CI integration
+
+    </section>
+</section>
+
+<section>
+    <section>
+        <h3>Unique advantages</h3>
+    </section>
+
+    <section>
+        <h3>Privacy</h3>
+        fine-grained privacy decisions
+    </section>
+
+    <section>
+        <h3>Modularity</h3>
+        <img
+    </section>
+</section>
+<!-- From versioning code to versioning data -->
+
+<section>
+    <section>
+        <img src="pics/phd052810s.png" height="600px">
+    </section>
+
+    <section>
+        <img src="pics/reallifeexample.png">
+    </section>
+    <section>
+        <h2>Be kind to your future self, work reproducibly</h2>
+        <img class="fragment fade-in" src="pics/your-closest-collaborator.png">
+        <!--<img class="fragment fade-in" height="400px" src="pics/ten-years-challenge.png">-->
+    </section>
+</section>
+<!-- The problem is that Git does not handle large files well -->
+
+<!-- And now bridge to git-annex and DataLad --->
+<section>
+    <h3>improve scientific workflows, coming from the perspective of software distributions</h3>
+    <img class="fragment fade-in" src="pics/datalad_logo_wide.svg">
+         <div class="fragment fade-in">"Share and treat data like software"</div>
+    <img class="fragment fade-in" src="pics/yarik_michael.jpg">
+    <img class="fragment fade-in" src="pics/neurodebian.png" height="250">
+    <img class="fragment fade-in" src="pics/joey-hess.jpg" height="250">
+    <img class="fragment fade-in" src="pics/gitannex.png" height="250">
+</section>
+</section>
+
+<!-- Advantages of distributed version control for data
+ TODO: add CI integrations with data
+ -->
+
+<section>
+    <section>
+        <h3>Advantages</h3>
+        <dl>
+            <dt>Transparency</dt>
+            <dd>Which data, in which version, obtained from where, ...</dd>
+            <dt>Disk space aware workflows</dt>
+            <dd>When the data is hosted elsewhere, you don't need to store it locally. When there are multiple copies, you only save one</dd>
+            <dt>Collaboration</dt>
+            <dd>Collaborate on data analyses like they are software projects</dd>
+        </dl>
+    </section>
+</section>
+
+<!-- A history lesson -->
+
+<section>
+    <section>
+
+    </section>
+</section>
+
+<!--- Provenance --->
+<section>
+  <section  data-background-image="https://alchetron.com/cdn/jon-claerbout-c970ff70-1e60-4ccc-92ca-583bba1b56b-resize-750.jpeg",
+  data-background-opacity="0.5">
+      <q cite="Jon Claerbout (paraphrased)">
+          An article about computational science in a scientific publication
+          is not the scholarship itself, it is merely advertising of the scholarship.
+          The actual scholarship is the complete software development environment
+          and the complete set of instructions which generated the figures.
+      </q>
+      <br><small>
+      <a href="https://library.seg.org/doi/abs/10.1190/1.1822162" target="_blank">
+          Jon Claerbout (paraphrased)</a></small>
+  </section>
+
+
+  <section data-transition="None">
+      <h2>Science is more than a PDF</h2>
+      <img src="pics/agoodstart.png">
+      <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank">
+                    The Turing Way</a>
+      </imgcredit>
+  </section>
+
+  <section data-transition="None">
+      <h2>Science is more than a PDF</h2>
+      <img src="pics/agoodstart2.png">
+      <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank">
+                    The Turing Way</a>
+      </imgcredit>
+  </section>
+
+  <section data-transition="None">
+      <h2>Science is more than a PDF</h2>
+      <img src="pics/agoodstart3.png">
+      <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank">
+                    The Turing Way</a>
+      </imgcredit>
+  </section>
+
+    <section>
+        <h2>Research ingredients</h2>
+
+        <img class='fragment fade-in' data-fragment-index="1" src="pics/flour.png" width="200px">
+        <img class='fragment fade-in' data-fragment-index="1" src="pics/water.png" width="400px">
+        <img class='fragment fade-in' data-fragment-index="1" src="pics/yeast.png" width="350px">
+
+        <p class="fragment fade-in" data-fragment-index="2">But what about the recipe?</p>
+        <img class='fragment fade-in' data-fragment-index="3" src="pics/bread.png" width="550px">
+    </section>
+
+    <section data-transition="None">
+        <h2>Open Sharing may not be enough</h2>
+        <dl class="fragment fade-in-then-semi-out" style="font-size:30px">
+            <dt><a href="https://royalsocietypublishing.org/doi/10.1098/rsos.180448" target="_blank">
+                Hardwicke et al., 2018</a>: </dt>
+            <ul>
+                <li>Open data of 38% of N=174 studies were not "in principle reusable"</li>
+                <li>24 out of 35 studies with reusable data: irreproducible main results without assistance of the original authors, </li>
+                <li>13 out of 24: not exactly reproducible even with assistance </li>
+                </ul>
+            <dt><a href="https://journals.sagepub.com/doi/full/10.1177/2515245920918872" target="_blank">
+                Obels et al., 2020</a>: </dt>
+            <ul>
+                <li>N=62 Registered Reports</li>
+                <li>36 articles shared both data and code to reproduce results</li>
+                <li>Out of those, main findings of 15 articles could not be reproduced</li>
+            </ul>
+        </dl>
+        <br><br>
+        <table style="font-size:30px" class="fragment fade-in">
+            <tr style="vertical-align:top">
+                <td>
+                Data Management<br>
+                <dl style="font-size: 25px;vertical-align:top">
+                    <!-- Data Management -->
+                    <li>multiple versions of code/data</li>
+                    <li>suboptimal data curation</li>
+                    <li>unclear execution order/entry points</li>
+                    <li>non-portable code</li>
+                </dl>
+                </td>
+
+            <td style="vertical-align:top">
+                Technical problems <br>
+                <dl style="font-size: 25px">
+                    <!-- -->
+                    <li>wrong software <br>
+                        environment</li>
+                    <li>proprietary software</li>
+                    <li>link rot/accessibility issues</li>
+                </dl>
+            </td>
+            <td style="vertical-align:top">
+                Human errors <br>
+                <dl style="font-size: 25px">
+                <!-- Human errors in the manuscript -->
+                    <li>reporting (copy-paste) errors</li>
+                    <li>ambiguous analysis specification</li>
+
+                </dl>
+            </td>
+            </tr>
+        </table>
+    </section>
+
+
+</section>
+
+
 				<section>Slide 1</section>
 				<section>Slide 2</section>
 			</div>
 		</div>
-
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
@@ -31,6 +619,29 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                width: 1280,
+                height: 960,
+
+                // Factor of the display size that should remain empty around the content
+                margin: 0.1,
+
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.2,
+                maxScale: 1.0,
+
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: 'c',
+                pdfSeparateFragments: false,
+                pdfMaxPagesPerSlide: 1,
+                pdfPageHeightOffset: -1,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
