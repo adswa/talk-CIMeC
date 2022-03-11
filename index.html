@@ -334,10 +334,14 @@ action summary:
     <section data-transition="None">
         <h3>2. Accessibility/Availability</h3>
         <img src="pics/remodnav2.png">
+                <p style="z-index: 100;position: fixed; font-size:35px;margin-top:-200px;margin-bottom:500px;margin-left:800px">
+            <img class="fragment" src="pics/amazing.jpg" height="300px"></p>
     </section>
 
     <section data-transition="None">
         <h3>2. Accessibility/Availability</h3>
+        Publicly shared code removes the bottleneck of an <br>
+        expired institutional e-mail address <br>
         <img src="pics/remodnav-3.png" height="900px">
     </section>
 
@@ -348,7 +352,7 @@ action summary:
 
 <section data-transition="None">
     <h3>2. Accessibility/Availability - for data</h3>
-    One demand file access via git-annex/DataLad:
+    On demand file access via git-annex/DataLad:
 <pre class="fragment fade-in" data-fragment-index="1" ><code class="bash" style="max-height:none; max-width:none"># clone the repository
 $ git clone https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 # get one or more files/directories/... on demand
@@ -357,6 +361,13 @@ $ git annex get file/directory/...
 $ datalad clone https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 $ datalad get file/directory/...
 </code></pre>
+
+    <small class="fragment fade-in">
+        Fortunate side-effect: Cloned repos/datasets are <strong>small in size</strong>, <br>
+        but can be <strong>browsed</strong> for existing files and can provide <strong>access</strong> to  <br>
+        their content regardless of where it is hosted.<br>
+        You can have access to more files than your computer has diskspace!
+    </small>
 </section>
 
 </section>
@@ -371,6 +382,7 @@ $ datalad get file/directory/...
 
     <section data-transition="None">
         <h3>3. Security and reliability</h3>
+        Git is great for keeping and synchronizing backups:
         <img src="pics/backup.png" height="900">
     </section>
 
@@ -470,6 +482,8 @@ $ datalad get file/directory/...
     <section data-transition="None">
         <h3>6. efficiency</h3>
         <img src="pics/github-actions-with-text.png">
+            <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank"> The Turing Way</a></imgcredit>
+
         <p class="fragment fade-in">Repository hosting features that increase your
             efficiency just as easily extend to your version-controlled data</p>
     </section>
@@ -482,6 +496,19 @@ $ datalad get file/directory/...
             <img class="fragment fade-out" data-fragment-index="1" src="pics/services_only.png" height="800px">
             <img class="fragment" data-fragment-index="1" src="pics/services_connected.png" height="800px">
         </div>
+    </section>
+
+    <section data-transition="None">
+        <h3>6. efficiency</h3>
+        <div class="r-stack">
+        <img class="fragment" src="pics/datalad-osf.gif">
+        <img class="fragment fade-in" src="pics/datalad-osf.png">
+            </div>
+        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:0px;margin-top:-300px;margin-left:500px">
+        This demonstration uses <a href="http://docs.datalad.org/projects/osf/en/latest" target="_blank">
+            datalad-osf</a>, a DataLad extension to interoperate with the OSF
+    </p>
+
     </section>
 </section>
 
@@ -519,10 +546,7 @@ $ datalad get file/directory/...
               <a href="http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html" target="_blank">
                   handbook.datalad.org
               </a> </small>
-            <p style="z-index: -1">
-<pre class="fragment fade-in" data-fragment-index="1"><code class="fragment fade-in" data-fragment-index="1" class="python" style="max-height:none" data-line-numbers="3, 7">vim code/mk_figuresnstats.py
-
-from datalad.api import get as datalad_get
+<pre class="fragment fade-in" data-fragment-index="1"><code data-fragment-index="1" class="python; fragment fade-in" style="max-height:none" data-line-numbers="1, 5">from datalad.api import get as datalad_get
 [...]
 infiles = [op.join('data', 'raw_eyegaze', 'sub-32', 'beh', 'sub-32_task-movie_run-5_recording-eyegaze_physio.tsv.gz'), [...]]
 for f in infiles:
@@ -535,7 +559,7 @@ for f in infiles:
 
 <section>
     <section>
-        <h3>Unique additional advantages</h3>
+        <h3>Unique additional advantages for science</h3>
     </section>
 
     <section>
@@ -547,42 +571,73 @@ for f in infiles:
                   <img class="fragment fade-out" data-fragment-index="3" height="330" src="pics/linkage_subds.svg">
                   <img class="fragment fade-in" data-fragment-index="3" src="pics/Provenance_alpha.png" height="500px">
               </div>
-          <li class="fragment fade-in" data-fragment-index="1">Overcomes scaling issues with large amounts of files</li>
-          <pre  class="fragment fade-in" data-fragment-index="1"><code class="fragment fade-in" data-fragment-index="1">adina@bulk1 in /ds/hcp/super on git:master❱ datalad status --annex -r
-  15530572 annex'd files (77.9 TB recorded total size)
-  nothing to save, working tree clean</code></pre>
-          <small><a class="fragment fade-in" data-fragment-index="1" href="https://github.com/datalad-datasets/human-connectome-project-openaccess" target="_blank">(github.com/datalad-datasets/human-connectome-project-openaccess)</a></small>
-          <li class="fragment fade-in" data-fragment-index="2">
+          <li class="fragment fade-in" data-fragment-index="1">
               Modularizes research components for transparency, reuse, and access
               management
           </li>
+          <li class="fragment fade-in" data-fragment-index="2">Overcomes scaling issues with large amounts of files</li>
+          <pre  class="fragment fade-in" data-fragment-index="2"><code class="fragment fade-in" data-fragment-index="2">adina@bulk1 in /ds/hcp/super on git:master❱ datalad status --annex -r
+  15530572 annex'd files (77.9 TB recorded total size)
+  nothing to save, working tree clean</code></pre>
+          <small><a class="fragment fade-in" data-fragment-index="2" href="https://github.com/datalad-datasets/human-connectome-project-openaccess" target="_blank">(github.com/datalad-datasets/human-connectome-project-openaccess)</a></small>
       </ul>
   </section>
 
 
-    <section>
+    <section data-transition="None">
         <h3>Privacy</h3>
         fine-grained privacy decisions: git-annex or your choice of hosting service
-        allow to keep files or datasets accessible only to authorized users.
+        allow to keep files or datasets accessible only to you or authorized users.
         <img src="pics/ukblinkage.png">
     </section>
 
     <section>
-        <h3>Provenance capture</h3>
+    <h3>machine-readable, re-executable provenance</h3>
+    <ul style="font-size:35px">
+            Much of neuroscientific research is computationally intensive, with
+            complex workflows from raw data to result, and plenty of researchers
+            degrees of freedom
+    </ul>
+    <img src="pics/dataflow.jpg">
+    <imgcredit>
+        <a href="https://www.frontiersin.org/articles/10.3389/fninf.2012.00009/full" target="_blank">
+            Poline et al., 2011</a></imgcredit>
+            <img class="fragment fade-in" data-fragment-index="1" src="pics/MachineReadable.png">
+            <imgcredit  class="fragment fade-in" data-fragment-index="1" ><a href="https://the-turing-way.netlify.app/reproducible-research/vcs/vcs-data.html" target="_blank">
+                        CC-BY Scriberia & The Turing Way</a>
+            </imgcredit>
+    </section>
+
+    <section data-transition="None">
+            <h3>machine-readable, re-executable provenance</h3>
+    <img src="pics/coarsemetadata.svg" width="1100"> <br>
+        <small><a href="https://www.biorxiv.org/content/10.1101/2021.10.12.464122v2" target="_blank">
+            "FAIRly big:  A framework for computationally reproducible processing of large-scale data",<br> doi.org/10.1038/s41597-022-01163-2
+        </a> </small>
     </section>
 </section>
 
 
 <section>
     <section>
-        <h3>Summary</h3>
+        <h3>Take home messages</h3>
         <dl>
-            <dt>Transparency</dt>
-            <dd>Which data, in which version, obtained from where, ...</dd>
-            <dt>Disk space aware workflows</dt>
-            <dd>When the data is hosted elsewhere, you don't need to store it locally. When there are multiple copies, you only save one</dd>
-            <dt>Collaboration</dt>
-            <dd>Collaborate on data analyses like they are software projects</dd>
+            <dt class="fragment fade-in-then-semi-out" data-fragment-index="1">Data deserves version control</dt>
+            <dd class="fragment fade-in-then-semi-out" data-fragment-index="1">It changes and evolves just like code</dd>
+            <dt class="fragment fade-in-then-semi-out" data-fragment-index="2">
+                git-annex and DataLad extend the advantages of Git and hosting services to your data
+            </dt>
+            <dd class="fragment fade-in-then-semi-out" data-fragment-index="2">Increased transparency, better reproducibility, easier accessibility,
+                efficiency through automation and collaboration, streamlined procedures for synchronizing and updating your work, ...</dd>
+            <dt  class="fragment fade-in-then-semi-out" data-fragment-index="3">git-annex and DataLad have unique additional advantages</dt>
+            <dd  class="fragment fade-in-then-semi-out" data-fragment-index="3">
+                Have access to more data than you have disk space</dd>
+            <dd  class="fragment fade-in-then-semi-out" data-fragment-index="3">
+                Who needs short-term memory when you can have automatic provenance capture?
+            </dd>
+            <dd  class="fragment fade-in-then-semi-out" data-fragment-index="3">
+                Link versioned data to your analysis at no disk-space cost</dd>
+            <dd  class="fragment fade-in-then-semi-out" data-fragment-index="3">...</dd>
         </dl>
     </section>
 
